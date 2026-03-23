@@ -1,0 +1,326 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-dim": "#6b4e0e",
+              "on-secondary-fixed-variant": "#525c6c",
+              "on-tertiary-container": "#624604",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0e0e0c",
+              "on-tertiary-fixed": "#4a3400",
+              "on-error": "#fff7f6",
+              "secondary-fixed-dim": "#cbd5e8",
+              "outline": "#797c73",
+              "inverse-on-surface": "#9e9d99",
+              "secondary": "#566070",
+              "surface-container-low": "#f5f4ed",
+              "on-error-container": "#752121",
+              "surface": "#fbf9f4",
+              "primary-dim": "#535252",
+              "tertiary": "#785a1a",
+              "on-secondary": "#f8f8ff",
+              "tertiary-fixed-dim": "#ecc479",
+              "on-tertiary": "#fff8f1",
+              "surface-container-high": "#e8e9e0",
+              "inverse-primary": "#ffffff",
+              "error-dim": "#4e0309",
+              "on-background": "#31332c",
+              "secondary-container": "#d9e3f6",
+              "tertiary-fixed": "#fbd185",
+              "on-secondary-fixed": "#36404f",
+              "surface-bright": "#fbf9f4",
+              "on-tertiary-fixed-variant": "#6c500f",
+              "surface-container": "#efeee6",
+              "surface-variant": "#e2e3d9",
+              "on-surface": "#31332c",
+              "on-primary-fixed": "#403f3f",
+              "surface-tint": "#5f5e5e",
+              "tertiary-container": "#fbd185",
+              "outline-variant": "#b1b3a9",
+              "secondary-fixed": "#d9e3f6",
+              "surface-dim": "#d9dbcf",
+              "secondary-dim": "#4a5463",
+              "on-secondary-container": "#485262",
+              "on-primary": "#faf7f6",
+              "on-surface-variant": "#5e6058",
+              "primary-fixed-dim": "#d6d4d3",
+              "background": "#fbf9f4",
+              "primary": "#5f5e5e",
+              "surface-container-highest": "#e2e3d9",
+              "error": "#9f403d",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "on-primary-container": "#525151",
+              "primary-fixed": "#e5e2e1",
+              "primary-container": "#e5e2e1",
+              "error-container": "#fe8983"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .editorial-kerning { letter-spacing: -0.02em; }
+        .glass-nav {
+            background-color: rgba(251, 249, 244, 0.8);
+            backdrop-filter: blur(24px);
+        }
+        .chat-bubble-owner {
+            background-color: #efeee6;
+            color: #31332c;
+            border-bottom-right-radius: 2px;
+        }
+        .chat-bubble-ai {
+            background-color: #5f5e5e;
+            color: #faf7f6;
+            border-bottom-left-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-tertiary/20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 shadow-[0px_4px_20px_rgba(49,51,44,0.04)] glass-nav">
+<div class="max-w-7xl mx-auto px-8 py-6 flex justify-between items-center">
+<div class="text-2xl font-headline font-bold tracking-tighter text-on-background" style="">Yekk</div>
+<div class="hidden md:flex space-x-10 items-center">
+<a class="font-headline font-semibold text-sm tracking-tight text-on-background border-b border-on-background transition-colors duration-300" href="#" style="">Use Cases</a>
+<a class="font-headline font-medium text-sm tracking-tight text-on-surface-variant hover:text-on-background transition-colors duration-300" href="/how-it-works.html" style="">How It Works</a>
+<button class="bg-primary hover:bg-primary-dim text-on-primary px-6 py-2.5 rounded-md font-headline font-semibold text-sm transition-all duration-200 active:scale-95" style="">Schedule a Call</button>
+</div>
+<!-- Mobile Toggle Placeholder -->
+<div class="md:hidden">
+<span class="material-symbols-outlined text-on-background" style="">menu</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-24">
+<div class="max-w-3xl">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-on-background editorial-kerning leading-tight mb-6" style="">
+                    Our AI Employees at Work
+                </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed" style="">
+                    See how Yekk agents improve operations across industries. We don't just alert you; we solve the problem before it hits your desk.
+                </p>
+</div>
+</section>
+<!-- Use Case Bento Grid -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Case 1: Hair Salon (Large) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="mb-12">
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Beauty &amp; Wellness</span>
+<h3 class="font-headline text-3xl font-bold text-on-background mb-4" style="">Hair Salon</h3>
+<p class="text-on-surface-variant text-lg max-w-md" style="">Filling 4 cancellations for tomorrow by rebooking prioritized clients.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<div class="space-y-4">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">I noticed Sarah and Mike cancelled for tomorrow afternoon. Should I reach out to the waitlist?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">Yes, but prioritize anyone who needs a color service. They usually spend more.</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">Done. I've rebooked 4 clients including Mrs. Jenkins. Your schedule is back to 100% capacity.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case 2: Gym Classes (Standard) -->
+<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Fitness</span>
+<h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Gym Classes</h3>
+<p class="text-on-surface-variant mb-8 text-base" style="">Rebalancing attendance between overbooked and underfilled classes.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
+<div class="space-y-3">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl text-xs">
+<p class="" style="">6PM HIIT is over capacity (24/20). 5PM only has 8 people. Suggest a 15% credit for 6PM users to switch?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl text-xs">
+<p class="" style="">Good call. Cap it once 5PM hits 15 people.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case 4: Liquor Store (Medium) -->
+<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Retail</span>
+<h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Liquor Store</h3>
+<p class="text-on-surface-variant mb-8 text-base" style="">Proposing stock transfers from Store #1 to Store #3 to avoid lost sales.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
+<div class="space-y-3 text-xs">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<p class="" style="">Store #3 is out of Top-Shelf Rye. Store #1 has 48 bottles that haven't moved in 2 weeks. Permission to move 24 units?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<p class="" style="">Approve. Have the morning delivery driver handle it.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case 3: Dance Studio (Large) -->
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
+<div class="mb-12">
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Education</span>
+<h3 class="font-headline text-3xl font-bold text-on-background mb-4" style="">Dance Studio</h3>
+<p class="text-on-surface-variant text-lg max-w-md" style="">Consolidating classes to free up instructor time and studio space.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<div class="space-y-4">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">Advanced Ballet A and B only have 3 students each today. I can merge them at 5PM to free up Studio 2.</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">Will that conflict with Instructor Elena's schedule?</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<p class="" style="">No, she is available. I've sent the update to all 6 students. Studio 2 is now clear for private bookings.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case 5: Barbershop (Full Width or Split) -->
+<div class="lg:col-span-6 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Service</span>
+<h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Barbershop</h3>
+<p class="text-on-surface-variant mb-8 text-base" style="">Staffing adjustments to reduce peak wait times by 30%.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
+<div class="space-y-3 text-xs">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<p class="" style="">Saturday 11AM-2PM wait times have hit 45 mins for 3 weeks straight. Should I ask Greg if he can shift his Tuesday hours to Saturday morning?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<p class="" style="">Go for it. If he agrees, update the public booking site immediately.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Case 6: Construction Company -->
+<div class="lg:col-span-6 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div>
+<span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Industrial</span>
+<h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Construction</h3>
+<p class="text-on-surface-variant mb-8 text-base" style="">Reassigning idle crews due to unforeseen material delays.</p>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
+<div class="space-y-3 text-xs">
+<div class="flex justify-start">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<p class="" style="">Lumber shipment for Site A is delayed 48 hours. The framing crew is idle. Should I move them to Site C to start the foundation prep?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<p class="" style="">Confirmed. Text the foreman the new site GPS and arrival time.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 mt-24">
+<div class="bg-on-background text-on-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold editorial-kerning mb-6" style="">Ready to delegate?</h2>
+<p class="text-lg opacity-80 mb-10" style="">Join 200+ business owners from cities around the world like Miami, Buenos Aires, New York City, and Madrid who are using Yekk to handle operations and logistical headaches while they focus on growth.</p>
+<button class="bg-on-primary text-on-background px-10 py-4 rounded-md font-headline font-bold text-lg hover:bg-surface transition-all active:scale-95" style="">Book Your Call</button>
+</div>
+<!-- Abstract Texture Decor -->
+<div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/20 blur-3xl rounded-full -mr-20 -mt-20"></div>
+<div class="absolute bottom-0 left-0 w-48 h-48 bg-primary/20 blur-3xl rounded-full -ml-16 -mb-16"></div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low w-full pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<div class="text-xl font-headline font-bold tracking-tighter text-on-background mb-6" style="">Yekk</div>
+<p class="font-body text-sm leading-relaxed text-on-surface-variant max-w-xs" style="">
+                    Advanced AI Operations for the modern business owner. Automated intelligence, human-centric control.
+                </p>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col space-y-4">
+<span class="font-headline font-bold text-xs uppercase tracking-widest text-on-background" style="">Navigation</span>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-background hover:underline transition-all" href="/" style="">Homepage</a>
+<a class="font-body text-sm text-on-background font-semibold" href="#" style="">Use Cases</a>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-background hover:underline transition-all" href="/how-it-works.html" style="">How It Works</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="font-headline font-bold text-xs uppercase tracking-widest text-on-background" style="">Legal</span>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-background hover:underline transition-all" href="#" style="">Privacy Policy</a>
+<a class="font-body text-sm text-on-surface-variant hover:text-on-background hover:underline transition-all" href="#" style="">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-10 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+<span class="font-body text-sm text-on-surface-variant" style="">© 2024 Yekk. Made for Business Owners.</span>
+<div class="flex space-x-6">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-background" style="">public</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-on-background" style="">alternate_email</span>
+</div>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="light" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>How It Works | Yekk</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-dim": "#6b4e0e",
+              "on-secondary-fixed-variant": "#525c6c",
+              "on-tertiary-container": "#624604",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#0e0e0c",
+              "on-tertiary-fixed": "#4a3400",
+              "on-error": "#fff7f6",
+              "secondary-fixed-dim": "#cbd5e8",
+              "outline": "#797c73",
+              "inverse-on-surface": "#9e9d99",
+              "secondary": "#566070",
+              "surface-container-low": "#f5f4ed",
+              "on-error-container": "#752121",
+              "surface": "#fbf9f4",
+              "primary-dim": "#535252",
+              "tertiary": "#785a1a",
+              "on-secondary": "#f8f8ff",
+              "tertiary-fixed-dim": "#ecc479",
+              "on-tertiary": "#fff8f1",
+              "surface-container-high": "#e8e9e0",
+              "inverse-primary": "#ffffff",
+              "error-dim": "#4e0309",
+              "on-background": "#31332c",
+              "secondary-container": "#d9e3f6",
+              "tertiary-fixed": "#fbd185",
+              "on-secondary-fixed": "#36404f",
+              "surface-bright": "#fbf9f4",
+              "on-tertiary-fixed-variant": "#6c500f",
+              "surface-container": "#efeee6",
+              "surface-variant": "#e2e3d9",
+              "on-surface": "#31332c",
+              "on-primary-fixed": "#403f3f",
+              "surface-tint": "#5f5e5e",
+              "tertiary-container": "#fbd185",
+              "outline-variant": "#b1b3a9",
+              "secondary-fixed": "#d9e3f6",
+              "surface-dim": "#d9dbcf",
+              "secondary-dim": "#4a5463",
+              "on-secondary-container": "#485262",
+              "on-primary": "#faf7f6",
+              "on-surface-variant": "#5e6058",
+              "primary-fixed-dim": "#d6d4d3",
+              "background": "#fbf9f4",
+              "primary": "#5f5e5e",
+              "surface-container-highest": "#e2e3d9",
+              "error": "#9f403d",
+              "on-primary-fixed-variant": "#5c5b5b",
+              "on-primary-container": "#525151",
+              "primary-fixed": "#e5e2e1",
+              "primary-container": "#e5e2e1",
+              "error-container": "#fe8983"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .editorial-heading {
+            letter-spacing: -0.02em;
+        }
+        .tonal-nesting-bg-shift {
+            background-color: #f5f4ed;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background font-body selection:bg-tertiary/20">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f4]/80 backdrop-blur-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
+<div class="text-2xl font-bold tracking-tighter text-[#31332c]" style="">Yekk</div>
+<div class="hidden md:flex space-x-12 items-center">
+<a class="font-['Manrope'] font-medium text-sm tracking-tight text-[#5e6058] hover:text-[#31332c] transition-colors duration-300" href="/use-cases.html" style="">Use Cases</a>
+<a class="font-['Manrope'] font-semibold text-sm tracking-tight text-[#31332c] border-b border-[#31332c] transition-colors duration-300" href="#" style="">How It Works</a>
+<a class="bg-primary text-on-primary px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90 active:scale-95 transition-all duration-200" href="/schedule-a-call.html" style="">Schedule a Call</a>
+</div>
+<!-- Mobile Menu Placeholder -->
+<div class="md:hidden">
+<span class="material-symbols-outlined text-on-background" style="">menu</span>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-20 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="max-w-3xl">
+<span class="inline-block py-1 px-3 bg-surface-container-high rounded-full text-xs font-semibold tracking-wider text-on-surface-variant mb-6 uppercase" style="">The Process</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background editorial-heading mb-8 leading-[1.1]" style="">
+                    Your business runs while you sleep.
+                </h1>
+<p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl" style="">
+                    We replace operational friction with custom-tuned AI agents that maintain your standard of excellence, 24/7.
+                </p>
+</div>
+</section>
+<!-- The Three-Step Process (Bento-style layout) -->
+<section class="max-w-7xl mx-auto px-8 mb-40">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Step 1 -->
+<div class="md:col-span-7 bg-surface-container-low p-10 md:p-16 rounded-xl flex flex-col justify-between group">
+<div>
+<div class="w-12 h-12 bg-surface flex items-center justify-center rounded-lg mb-10 shadow-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="search_insights" style="">search_insights</span>
+</div>
+<span class="text-tertiary font-bold text-sm tracking-widest uppercase mb-4 block" style="">Step 01</span>
+<h2 class="font-headline text-3xl md:text-4xl font-bold text-on-background mb-6" style="">We learn your business</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-8 max-w-md" style="">
+                            Understanding your unique workflows and operational bottlenecks. We don't just plug in tools; we absorb your culture and processes.
+                        </p>
+</div>
+<div class="h-48 md:h-64 mt-8 rounded-lg overflow-hidden relative bg-surface-container-highest">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-tertiary/10"></div>
+<img alt="Operational Audit" class="w-full h-full object-cover mix-blend-multiply opacity-40" data-alt="Abstract overhead view of organized architectural blueprints and clean workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvQ-av7aDTvDIc7zE6-o6BHNRnqrCumFw8PK4PdyJ-0wL6I6y7LoZMk8MCKtPYiTVc5ta6FceUKCvpsTo4AukDt4REu1f8SBXI4EyZgQmDcR2ZvkT0RwKTi0pWBAeupfZBtppvbM19pTKVdtHNatWkhNwldUbrA2Rttk8LhiqD6vZuokdJayqTIxFN-3V2lfqWeyJVQaIE3TU1tRiz3scMbobs94VNVWmMfM3RL_rM1WKdPRvuvDl1pt_vzdt9do5UMOwDhnjbdw" style="">
+</div>
+</div>
+<!-- Step 2 -->
+<div class="md:col-span-5 bg-surface-container-highest p-10 md:p-12 rounded-xl flex flex-col items-start">
+<div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center rounded-lg mb-10 shadow-sm">
+<span class="material-symbols-outlined text-tertiary" data-icon="smart_toy" style="">smart_toy</span>
+</div>
+<span class="text-tertiary font-bold text-sm tracking-widest uppercase mb-4 block" style="">Step 02</span>
+<h2 class="font-headline text-3xl font-bold text-on-background mb-6" style="">We deploy AI employees</h2>
+<p class="text-lg text-on-surface-variant leading-relaxed mb-12" style="">
+                        Custom-tuned agents that monitor and manage your internal operations. These aren't generic bots; they are specialist workforce extensions.
+                    </p>
+<div class="w-full space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 shadow-sm">
+<div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+<span class="text-sm font-medium" style="">OpsAgent-01 Initialized</span>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 shadow-sm opacity-60">
+<div class="w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-sm font-medium" style="">Logic Mapping...</span>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="md:col-span-12 bg-on-background p-10 md:p-20 rounded-xl text-on-primary overflow-hidden relative">
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<div class="w-12 h-12 bg-primary-dim flex items-center justify-center rounded-lg mb-10">
+<span class="material-symbols-outlined text-on-primary" data-icon="update" style="">update</span>
+</div>
+<span class="text-tertiary-fixed font-bold text-sm tracking-widest uppercase mb-4 block" style="">Step 03</span>
+<h2 class="font-headline text-4xl md:text-5xl font-bold mb-8" style="">Yekk runs your operations continuously</h2>
+<p class="text-xl text-on-primary/70 leading-relaxed mb-10 max-w-lg" style="">
+                                Proactive insights and actions delivered 24/7. While you focus on strategy, your AI staff handles execution, operations, and refinement.
+                            </p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-on-background bg-surface-variant"></div>
+<div class="w-10 h-10 rounded-full border-2 border-on-background bg-tertiary-dim"></div>
+<div class="w-10 h-10 rounded-full border-2 border-on-background bg-primary"></div>
+</div>
+<span class="text-sm font-medium text-on-primary/50" style="">Active Agents Monitoring</span>
+</div>
+</div>
+<div class="relative">
+<div class="bg-[#1A1A1A]/40 backdrop-blur-2xl rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden group">
+<!-- Decorative Glow -->
+<div class="absolute -top-24 -right-24 w-48 h-48 bg-tertiary/20 rounded-full blur-[80px] group-hover:bg-tertiary/30 transition-colors duration-700"></div>
+<div class="relative z-10">
+<div class="flex justify-between items-center mb-10">
+<div class="flex items-center gap-3">
+<div class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-tertiary"></span>
+</div>
+<span class="text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase font-headline" style="">System Status: Live</span>
+</div>
+<span class="text-[10px] font-medium text-white/40 tracking-widest font-headline" style="">V.2.4.0-OPS</span>
+</div>
+<div class="space-y-8">
+<!-- Metric 1 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-semibold text-white/70 font-headline uppercase tracking-wider" style="">Process Optimization</span>
+<span class="text-lg font-bold text-white leading-none font-headline" style="">94%</span>
+</div>
+<div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary w-[94%] shadow-[0_0_12px_rgba(120,90,26,0.5)] transition-all duration-1000 ease-out"></div>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-semibold text-white/70 font-headline uppercase tracking-wider" style="">Average time savings per month</span>
+<span class="text-lg font-bold text-white leading-none font-headline" style="">103 Hrs</span>
+</div>
+<div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%] shadow-[0_0_12px_rgba(95,94,94,0.5)] transition-all duration-1000 ease-out delay-100"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<span class="text-xs font-semibold text-white/70 font-headline uppercase tracking-wider" style="">Response Latency</span>
+<span class="text-lg font-bold text-white leading-none font-headline" style="">0.4s</span>
+</div>
+<div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-dim w-[91%] shadow-[0_0_12px_rgba(107,78,14,0.5)] transition-all duration-1000 ease-out delay-200"></div>
+</div>
+</div>
+</div>
+<!-- Bottom Meta -->
+<div class="mt-10 pt-6 border-t border-white/5 flex gap-6">
+<div class="flex flex-col">
+<span class="text-[9px] text-white/30 uppercase tracking-tighter mb-1 font-headline" style="">Active Threads</span>
+<span class="text-xs font-bold text-white font-headline" style="">1,024</span>
+</div>
+<div class="flex flex-col">
+<span class="text-[9px] text-white/30 uppercase tracking-tighter mb-1 font-headline" style="">Success Rate</span>
+<span class="text-xs font-bold text-white font-headline" style="">99.98%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Background Element -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-tertiary/10 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-7xl mx-auto px-8 py-24 text-center">
+<div class="max-w-2xl mx-auto">
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-8 editorial-heading" style="">
+                    Less work, more control.
+                </h2>
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed" style="">
+                    Ready to reclaim your time? Let’s map out your operations and see which employees we can build for you.
+                </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<button class="w-full sm:w-auto px-10 py-5 bg-primary text-on-primary font-bold rounded-md hover:bg-primary-dim transition-all active:scale-95 shadow-lg shadow-primary/10" style="">
+                        Get Started Now
+                    </button>
+<a class="group text-tertiary font-bold flex items-center gap-2 hover:underline" href="/schedule-a-call.html" style="">
+                        Schedule a call to get started
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward" style="">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full pt-20 pb-10 tonal-nesting-bg-shift">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-12">
+<div>
+<div class="text-xl font-bold tracking-tighter text-[#31332c] mb-6" style="">Yekk</div>
+<p class="text-sm font-['Inter'] leading-relaxed text-[#5e6058] max-w-xs mb-8" style="">
+                    Empowering business owners with autonomous digital labor. High-end intelligence for high-stakes operations.
+                </p>
+<p class="font-['Inter'] text-sm leading-relaxed text-[#5e6058]" style="">
+                    © 2024 Yekk. Made for Business Owners.
+                </p>
+</div>
+<div class="flex flex-col md:items-end gap-6">
+<nav class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="text-[#5e6058] hover:text-[#31332c] hover:underline transition-all text-sm font-['Inter']" href="/" style="">Homepage</a>
+<a class="text-[#5e6058] hover:text-[#31332c] hover:underline transition-all text-sm font-['Inter']" href="/use-cases.html" style="">Use Cases</a>
+<a class="text-[#31332c] font-semibold text-sm font-['Inter']" href="#" style="">How It Works</a>
+<a class="text-[#5e6058] hover:text-[#31332c] hover:underline transition-all text-sm font-['Inter']" href="/schedule-a-call.html" style="">Schedule Call</a>
+<a class="text-[#5e6058] hover:text-[#31332c] hover:underline transition-all text-sm font-['Inter']" href="#" style="">Privacy Policy</a>
+</nav>
+<div class="flex gap-4 mt-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="share" style="">share</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="alternate_email" style="">alternate_email</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
