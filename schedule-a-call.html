@@ -153,21 +153,26 @@
 <!-- Right Content: Premium Form -->
 <div class="lg:col-span-7">
 <div class="bg-surface-container-lowest p-8 md:p-12 rounded-xl shadow-[0px_12px_40px_rgba(49,51,44,0.06)] border border-outline-variant/10">
-<form class="space-y-8">
+<form id="consultation-form" class="space-y-8">
+<input type="hidden" name="_subject" value="New Yekk Consultation Request">
+<input type="text" name="_honey" style="display:none">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="space-y-2">
-<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" style="">Full Name</label>
-<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="Jane Doe" type="text">
+<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" for="name">Full Name</label>
+<input id="name" name="Full Name" required class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="Jane Doe" type="text">
 </div>
 <div class="space-y-2">
-<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" style="">Work Email</label>
-<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="jane@business.com" type="email">
+<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" for="email">Work Email</label>
+<input id="email" name="Work Email" required class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="jane@business.com" type="email">
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="space-y-2">
-<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" style="">Business Type</label>
-<select class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all">
+<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" for="business-type">Business Type</label>
+<select id="business-type" name="Business Type" required class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all">
+<option value="" disabled selected>Select your industry</option>
 <option>Professional Services</option>
 <option>E-commerce</option>
 <option>SaaS</option>
@@ -176,8 +181,8 @@
 </select>
 </div>
 <div class="space-y-2">
-<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" style="">Monthly Ops Hours</label>
-<input class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="e.g. 160" type="number">
+<label class="block text-xs font-semibold text-on-surface-variant tracking-wider uppercase" for="ops-hours">Monthly Ops Hours</label>
+<input id="ops-hours" name="Monthly Ops Hours" class="w-full bg-surface-container-highest border-none rounded-lg px-4 py-3 text-on-background focus:ring-1 focus:ring-tertiary/20 focus:outline-tertiary transition-all" placeholder="e.g. 160" type="number">
 </div>
 </div>
 <div class="space-y-4 pt-4">
@@ -185,11 +190,15 @@
 <span class="material-symbols-outlined text-tertiary text-sm" data-icon="calendar_today" style="">calendar_today</span>
 <span class="text-xs font-medium text-on-surface-variant" style="">Prefer a direct booking? <a class="text-tertiary hover:underline" href="#" style="">Select a time on Calendly</a></span>
 </div>
-<button class="group relative w-full bg-primary text-on-primary py-4 rounded-lg font-bold text-sm tracking-widest uppercase overflow-hidden transition-all duration-300 active:scale-95 shadow-lg shadow-primary/10" type="submit" style="">
-<span class="relative z-10 flex items-center justify-center gap-2" style="">
+<button id="submit-btn" class="group relative w-full bg-primary text-on-primary py-4 rounded-lg font-bold text-sm tracking-widest uppercase overflow-hidden transition-all duration-300 active:scale-95 shadow-lg shadow-primary/10" type="submit" style="">
+<span id="btn-text" class="relative z-10 flex items-center justify-center gap-2" style="">
                                     Request Consultation
                                     <span class="material-symbols-outlined text-base group-hover:translate-x-1 transition-transform" data-icon="arrow_forward" style="">arrow_forward</span>
 </span>
+<span id="btn-loading" class="relative z-10 items-center justify-center gap-2 hidden" style="">
+                                    <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                                    Sending...
+                                </span>
 <div class="absolute inset-0 bg-gradient-to-br from-primary to-primary-dim opacity-0 group-hover:opacity-100 transition-opacity"></div>
 </button>
 <p class="text-[10px] text-center text-on-surface-variant leading-relaxed px-4" style="">
@@ -197,6 +206,49 @@
                             </p>
 </div>
 </form>
+<!-- Success Message (hidden by default) -->
+<div id="success-message" class="hidden p-8 md:p-12 text-center space-y-4">
+<span class="material-symbols-outlined text-tertiary text-5xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<h3 class="editorial-heading text-2xl font-bold text-on-background">We've received your request</h3>
+<p class="text-on-surface-variant text-sm max-w-sm mx-auto">Our team will review your details and reach out within 24 hours to schedule your consultation.</p>
+</div>
+<script>
+document.getElementById('consultation-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const form = e.target;
+    const btnText = document.getElementById('btn-text');
+    const btnLoading = document.getElementById('btn-loading');
+    const submitBtn = document.getElementById('submit-btn');
+
+    btnText.classList.add('hidden');
+    btnLoading.classList.remove('hidden');
+    btnLoading.classList.add('flex');
+    submitBtn.disabled = true;
+
+    const formData = new FormData(form);
+
+    try {
+        const res = await fetch('https://formsubmit.co/ajax/kishan.dhulashia@gmail.com', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: formData
+        });
+        const data = await res.json();
+        if (data.success === 'true' || data.success === true) {
+            form.classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+        } else {
+            throw new Error('Submission failed');
+        }
+    } catch (err) {
+        btnText.classList.remove('hidden');
+        btnLoading.classList.add('hidden');
+        btnLoading.classList.remove('flex');
+        submitBtn.disabled = false;
+        alert('Something went wrong. Please try again or email us directly.');
+    }
+});
+</script>
 </div>
 <!-- Bento Hint Card -->
 <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4">
