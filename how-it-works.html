@@ -85,6 +85,49 @@
         .tonal-nesting-bg-shift {
             background-color: #f5f4ed;
         }
+
+        /* === Animation System === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes navSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes drawWidth {
+            from { width: 0%; }
+        }
+
+        nav { animation: navSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+        .anim-hero {
+            opacity: 0;
+            animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-fade-up, .anim-scale-in {
+            opacity: 0;
+        }
+        .anim-fade-up.revealed {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-scale-in.revealed {
+            animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .progress-bar-anim {
+            width: 0% !important;
+            transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .progress-bar-anim.revealed {
+            width: var(--target-width) !important;
+        }
     </style>
 </head>
 <body class="bg-surface text-on-background font-body selection:bg-tertiary/20">
@@ -107,11 +150,11 @@
 <!-- Hero Section -->
 <section class="max-w-7xl mx-auto px-8 mb-32">
 <div class="max-w-3xl">
-<span class="inline-block py-1 px-3 bg-surface-container-high rounded-full text-xs font-semibold tracking-wider text-on-surface-variant mb-6 uppercase" style="">The Process</span>
-<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background editorial-heading mb-8 leading-[1.1]" style="">
+<span class="inline-block py-1 px-3 bg-surface-container-high rounded-full text-xs font-semibold tracking-wider text-on-surface-variant mb-6 uppercase anim-hero" style="--delay: 0ms">The Process</span>
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-background editorial-heading mb-8 leading-[1.1] anim-hero" style="--delay: 150ms">
                     Your business runs while you sleep.
                 </h1>
-<p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl" style="">
+<p class="text-xl text-on-surface-variant font-body leading-relaxed max-w-2xl anim-hero" style="--delay: 300ms">
                     We replace operational friction with custom-tuned AI agents that maintain your standard of excellence, 24/7.
                 </p>
 </div>
@@ -120,7 +163,7 @@
 <section class="max-w-7xl mx-auto px-8 mb-40">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
 <!-- Step 1 -->
-<div class="md:col-span-7 bg-surface-container-low p-10 md:p-16 rounded-xl flex flex-col justify-between group">
+<div class="md:col-span-7 bg-surface-container-low p-10 md:p-16 rounded-xl flex flex-col justify-between group anim-fade-up" style="--delay: 0ms">
 <div>
 <div class="w-12 h-12 bg-surface flex items-center justify-center rounded-lg mb-10 shadow-sm">
 <span class="material-symbols-outlined text-tertiary" data-icon="search_insights" style="">search_insights</span>
@@ -137,7 +180,7 @@
 </div>
 </div>
 <!-- Step 2 -->
-<div class="md:col-span-5 bg-surface-container-highest p-10 md:p-12 rounded-xl flex flex-col items-start">
+<div class="md:col-span-5 bg-surface-container-highest p-10 md:p-12 rounded-xl flex flex-col items-start anim-fade-up" style="--delay: 150ms">
 <div class="w-12 h-12 bg-surface-container-lowest flex items-center justify-center rounded-lg mb-10 shadow-sm">
 <span class="material-symbols-outlined text-tertiary" data-icon="smart_toy" style="">smart_toy</span>
 </div>
@@ -158,7 +201,7 @@
 </div>
 </div>
 <!-- Step 3 -->
-<div class="md:col-span-12 bg-on-background p-10 md:p-20 rounded-xl text-on-primary overflow-hidden relative">
+<div class="md:col-span-12 bg-on-background p-10 md:p-20 rounded-xl text-on-primary overflow-hidden relative anim-fade-up" style="--delay: 0ms">
 <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 <div>
 <div class="w-12 h-12 bg-primary-dim flex items-center justify-center rounded-lg mb-10">
@@ -201,7 +244,7 @@
 <span class="text-lg font-bold text-white leading-none font-headline" style="">94%</span>
 </div>
 <div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-tertiary w-[94%] shadow-[0_0_12px_rgba(120,90,26,0.5)] transition-all duration-1000 ease-out"></div>
+<div class="h-full bg-tertiary shadow-[0_0_12px_rgba(120,90,26,0.5)] transition-all duration-1000 ease-out progress-bar-anim" data-width="94%" style="--target-width: 94%"></div>
 </div>
 </div>
 <!-- Metric 2 -->
@@ -211,7 +254,7 @@
 <span class="text-lg font-bold text-white leading-none font-headline" style="">103 Hrs</span>
 </div>
 <div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-primary w-[82%] shadow-[0_0_12px_rgba(95,94,94,0.5)] transition-all duration-1000 ease-out delay-100"></div>
+<div class="h-full bg-primary shadow-[0_0_12px_rgba(95,94,94,0.5)] transition-all duration-1000 ease-out delay-100 progress-bar-anim" data-width="82%" style="--target-width: 82%"></div>
 </div>
 </div>
 <!-- Metric 3 -->
@@ -221,7 +264,7 @@
 <span class="text-lg font-bold text-white leading-none font-headline" style="">0.4s</span>
 </div>
 <div class="h-[3px] w-full bg-white/5 rounded-full overflow-hidden">
-<div class="h-full bg-tertiary-dim w-[91%] shadow-[0_0_12px_rgba(107,78,14,0.5)] transition-all duration-1000 ease-out delay-200"></div>
+<div class="h-full bg-tertiary-dim shadow-[0_0_12px_rgba(107,78,14,0.5)] transition-all duration-1000 ease-out delay-200 progress-bar-anim" data-width="91%" style="--target-width: 91%"></div>
 </div>
 </div>
 </div>
@@ -248,13 +291,13 @@
 <!-- Final CTA -->
 <section class="max-w-7xl mx-auto px-8 py-24 text-center">
 <div class="max-w-2xl mx-auto">
-<h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-8 editorial-heading" style="">
+<h2 class="font-headline text-4xl md:text-5xl font-bold text-on-background mb-8 editorial-heading anim-fade-up" style="">
                     Less work, more control.
                 </h2>
-<p class="text-lg text-on-surface-variant mb-12 leading-relaxed" style="">
+<p class="text-lg text-on-surface-variant mb-12 leading-relaxed anim-fade-up" style="--delay: 100ms">
                     Ready to reclaim your time? Let’s map out your operations and see which employees we can build for you.
                 </p>
-<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center anim-fade-up" style="--delay: 200ms">
 <button class="w-full sm:w-auto px-10 py-5 bg-primary text-on-primary font-bold rounded-md hover:bg-primary-dim transition-all active:scale-95 shadow-lg shadow-primary/10" style="">
                         Get Started Now
                     </button>
@@ -297,4 +340,18 @@
 </div>
 </div>
 </footer>
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.anim-fade-up, .anim-scale-in, .progress-bar-anim').forEach(el => {
+    observer.observe(el);
+});
+</script>
 </body></html>

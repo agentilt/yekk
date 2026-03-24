@@ -89,6 +89,58 @@
         .editorial-kerning {
             letter-spacing: -0.02em;
         }
+
+        /* === Animation System === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes navSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes chatBubble {
+            from { opacity: 0; transform: translateY(14px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        nav { animation: navSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+        .anim-hero {
+            opacity: 0;
+            animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-fade-up, .anim-slide-right, .anim-scale-in {
+            opacity: 0;
+        }
+        .anim-fade-up.revealed {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-slide-right.revealed {
+            animation: slideInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-scale-in.revealed {
+            animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .chat-anim {
+            opacity: 0;
+        }
+        .chat-anim.revealed {
+            animation: chatBubble 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
     </style>
 </head>
 <body class="font-body selection:bg-tertiary/20">
@@ -113,13 +165,13 @@
 <section class="max-w-7xl mx-auto px-8 mb-40">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 <div class="lg:col-span-7">
-<h1 class="font-headline font-extrabold text-[3.5rem] leading-[1.1] editorial-kerning text-on-background mb-8" style="">
+<h1 class="anim-hero font-headline font-extrabold text-[3.5rem] leading-[1.1] editorial-kerning text-on-background mb-8" style="--delay: 100ms">
                         Hire AI employees for your business.
                     </h1>
-<p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed mb-12" style="">
+<p class="anim-hero font-body text-xl text-on-surface-variant max-w-xl leading-relaxed mb-12" style="--delay: 250ms">
                         AI agents that monitor, manage, and optimize your operations — so you don’t have to.
                     </p>
-<div class="flex items-center space-x-8">
+<div class="anim-hero flex items-center space-x-8" style="--delay: 400ms">
 <button class="bg-primary text-on-primary px-8 py-4 rounded-md font-headline font-bold text-lg hover:scale-[0.98] transition-all duration-200 shadow-lg shadow-primary/10" style="">
                             Schedule a call
                         </button>
@@ -128,7 +180,7 @@
                         </a>
 </div>
 </div>
-<div class="lg:col-span-5 relative">
+<div class="lg:col-span-5 relative anim-hero" style="--delay: 300ms">
 <!-- High-fidelity Chat UI -->
 <div class="bg-surface-container-lowest rounded-xl shadow-[0px_12px_40px_rgba(49,51,44,0.06)] overflow-hidden max-w-sm mx-auto border border-outline-variant/10">
 <div class="bg-[#075e54] p-4 flex items-center space-x-3">
@@ -141,15 +193,15 @@
 </div>
 </div>
 <div class="bg-[#e5ddd5] p-4 space-y-4 min-h-[400px] flex flex-col">
-<div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm self-start max-w-[85%]">
+<div class="chat-anim bg-white p-3 rounded-lg rounded-tl-none shadow-sm self-start max-w-[85%]" style="--delay: 800ms">
 <p class="text-sm text-on-background" style="">Hi Sarah, a 2:00 PM slot just opened up for Tuesday due to a cancellation. Should I fill it?</p>
 <p class="text-[10px] text-on-surface-variant text-right mt-1" style="">10:14 AM</p>
 </div>
-<div class="bg-[#dcf8c6] p-3 rounded-lg rounded-tr-none shadow-sm self-end max-w-[85%]">
+<div class="chat-anim bg-[#dcf8c6] p-3 rounded-lg rounded-tr-none shadow-sm self-end max-w-[85%]" style="--delay: 1600ms">
 <p class="text-sm text-on-background" style="">Yes please! Text the waitlist.</p>
 <p class="text-[10px] text-on-surface-variant text-right mt-1" style="">10:15 AM</p>
 </div>
-<div class="bg-white p-3 rounded-lg rounded-tl-none shadow-sm self-start max-w-[85%]">
+<div class="chat-anim bg-white p-3 rounded-lg rounded-tl-none shadow-sm self-start max-w-[85%]" style="--delay: 2400ms">
 <p class="text-sm text-on-background" style="">Done. Sent to 12 clients. James Rodriguez (Haircut + Shave) just claimed it and confirmed via link. Calendar updated.</p>
 <p class="text-[10px] text-on-surface-variant text-right mt-1" style="">10:17 AM</p>
 </div>
@@ -168,12 +220,12 @@
 <section class="bg-surface-container-low py-32">
 <div class="max-w-7xl mx-auto px-8">
 <div class="mb-20">
-<span class="text-tertiary font-headline font-bold tracking-widest text-xs uppercase mb-4 block" style="">YEKK AI - Your SUPERHUMAN EMPLOYEE</span>
-<h2 class="font-headline font-bold text-4xl text-on-background" style="">Operations on Autopilot</h2>
+<span class="anim-fade-up text-tertiary font-headline font-bold tracking-widest text-xs uppercase mb-4 block" style="">YEKK AI - Your SUPERHUMAN EMPLOYEE</span>
+<h2 class="anim-fade-up font-headline font-bold text-4xl text-on-background" style="--delay: 100ms">Operations on Autopilot</h2>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <!-- Card 1 -->
-<div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10 group">
+<div class="anim-fade-up md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10 group" style="--delay: 0ms">
 <div class="flex flex-col h-full justify-between">
 <div>
 <span class="material-symbols-outlined text-tertiary mb-6 text-3xl" data-icon="bedtime" style="">bedtime</span>
@@ -189,7 +241,7 @@
 </div>
 </div>
 <!-- Card 2 -->
-<div class="md:col-span-4 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10">
+<div class="anim-fade-up md:col-span-4 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10" style="--delay: 100ms">
 <span class="material-symbols-outlined text-tertiary mb-6 text-3xl" data-icon="schedule" style="">schedule</span>
 <h3 class="font-headline font-bold text-2xl text-on-background mb-4" style="">Save hours every week</h3>
 <p class="font-body text-on-surface-variant leading-relaxed" style="">
@@ -197,7 +249,7 @@
                         </p>
 </div>
 <!-- Card 3 -->
-<div class="md:col-span-4 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10">
+<div class="anim-fade-up md:col-span-4 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10" style="--delay: 200ms">
 <span class="material-symbols-outlined text-tertiary mb-6 text-3xl" data-icon="trending_down" style="">trending_down</span>
 <h3 class="font-headline font-bold text-2xl text-on-background mb-4" style="">Reduce operational costs</h3>
 <p class="font-body text-on-surface-variant leading-relaxed" style="">
@@ -205,7 +257,7 @@
                         </p>
 </div>
 <!-- Card 4 -->
-<div class="md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10 group">
+<div class="anim-fade-up md:col-span-8 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_4px_20px_rgba(49,51,44,0.04)] border border-outline-variant/10 group" style="--delay: 300ms">
 <div class="flex flex-col h-full justify-between">
 <div>
 <span class="material-symbols-outlined text-tertiary mb-6 text-3xl" data-icon="auto_awesome" style="">auto_awesome</span>
@@ -227,26 +279,26 @@
 <section class="py-32 bg-surface">
 <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
 <div>
-<h2 class="font-headline font-bold text-4xl text-on-background mb-8" style="">Built for the modern business &amp; service owner.</h2>
-<p class="font-body text-lg text-on-surface-variant mb-12 leading-relaxed" style="">
+<h2 class="anim-fade-up font-headline font-bold text-4xl text-on-background mb-8" style="">Built for the modern business &amp; service owner.</h2>
+<p class="anim-fade-up font-body text-lg text-on-surface-variant mb-12 leading-relaxed" style="--delay: 100ms">
                         Yekk isn't just a chatbot. It's an intelligence layer that connects to your existing tools—Square, Shopify, Gmail—and acts on your behalf.
                     </p>
 <ul class="space-y-6">
-<li class="flex items-start space-x-4" style="">
+<li class="anim-fade-up flex items-start space-x-4" style="--delay: 200ms">
 <span class="material-symbols-outlined text-tertiary mt-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
 <div>
 <span class="font-bold text-on-background block" style="">Instant Slot Filling</span>
 <span class="text-on-surface-variant" style="">Automatically texts waitlisted clients when cancellations occur.</span>
 </div>
 </li>
-<li class="flex items-start space-x-4" style="">
+<li class="anim-fade-up flex items-start space-x-4" style="--delay: 350ms">
 <span class="material-symbols-outlined text-tertiary mt-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
 <div>
 <span class="font-bold text-on-background block" style="">Inventory Sentinel</span>
 <span class="text-on-surface-variant" style="">Monitors stock levels and prepares purchase orders for your approval.</span>
 </div>
 </li>
-<li class="flex items-start space-x-4" style="">
+<li class="anim-fade-up flex items-start space-x-4" style="--delay: 500ms">
 <span class="material-symbols-outlined text-tertiary mt-1" data-icon="check_circle" data-weight="fill" style="font-variation-settings: &quot;FILL&quot; 1;">check_circle</span>
 <div>
 <span class="font-bold text-on-background block" style="">Revenue Protection</span>
@@ -256,10 +308,10 @@
 </ul>
 </div>
 <div class="grid grid-cols-2 gap-4">
-<div class="pt-12">
+<div class="anim-fade-up pt-12" style="--delay: 200ms">
 <img alt="Salon Interior" class="rounded-xl w-full h-80 object-cover shadow-lg" data-alt="High-end modern hair salon interior design" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRpV8Wfxfgpn76OXiaIrEIkK2VWiykyhCi3ASDSwKBfCnLQTOjplzS6GLl64wGg5fO0ATnBmbKPKfa-iyJUxSJtHSJa0XXyqR9bE03rub7V62G-FSUDA3eYrKAPYcOYSolPIQC1Lk9zRug3Tzo6aK5WgfkhJFi8uAxFaYSLGFjXYGXrEKFongAyx9LKoeZp027QxEAeIFCHR8cM223NR-1F9rBugZlWBpGVEqSnRqTK-Yim07qbwfyIl5PZ_YeoC4llQw-tmTa1w" style="">
 </div>
-<div>
+<div class="anim-fade-up" style="--delay: 350ms">
 <img alt="Consultation" class="rounded-xl w-full h-80 object-cover shadow-lg" data-alt="Stylist consulting with a client in a studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxN28hx-1xNzymGVsx8guCTqs1mvHwMC-ObduJeoFAVGNdxMMovEeLU0Am2zDO24RGr_sBsIHXAKoviI8ipSryrNPPTphHGLs_ioKCWMRWzsYYz7ibsO4FbVL2MCxl2qlnkBr6d4dvC7ijpAqNBM7kdCqeyLrFIivGP-3FV4f-TAoeERMbJsQn6mG2DlxVbdvupaH4f1aud7H2UzndGXLn0KUnAZtZrtUKn4VTW3IMkoKnhnZYbSCDXbSciK9E1TuI4UqS3wx9Sw" style="">
 </div>
 </div>
@@ -268,9 +320,9 @@
 <!-- CTA Section -->
 <section class="py-40 bg-on-background text-surface">
 <div class="max-w-4xl mx-auto px-8 text-center">
-<h2 class="font-headline font-extrabold text-5xl mb-8 leading-tight" style="">Ready to hire your first AI employee?</h2>
-<p class="font-body text-xl text-surface/70 mb-12" style="">Join 200+ business owners who have traded busywork for growth.</p>
-<button class="bg-surface text-on-background px-10 py-5 rounded-md font-headline font-bold text-xl hover:bg-surface-container-high transition-colors" style="">
+<h2 class="anim-fade-up font-headline font-extrabold text-5xl mb-8 leading-tight" style="">Ready to hire your first AI employee?</h2>
+<p class="anim-fade-up font-body text-xl text-surface/70 mb-12" style="--delay: 100ms">Join 200+ business owners who have traded busywork for growth.</p>
+<button class="anim-fade-up bg-surface text-on-background px-10 py-5 rounded-md font-headline font-bold text-xl hover:bg-surface-container-high transition-colors" style="--delay: 200ms">
                     Schedule Your Onboarding Call
                 </button>
 </div>
@@ -307,4 +359,19 @@
 </div>
 </div>
 </footer>
+<script>
+// Scroll-reveal observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.anim-fade-up, .anim-slide-right, .anim-scale-in, .chat-anim').forEach(el => {
+    observer.observe(el);
+});
+</script>
 </body></html>

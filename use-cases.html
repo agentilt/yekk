@@ -101,6 +101,50 @@
             color: #faf7f6;
             border-bottom-left-radius: 2px;
         }
+
+        /* === Animation System === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(32px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes navSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes chatBubble {
+            from { opacity: 0; transform: translateY(14px) scale(0.96); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        nav { animation: navSlideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+        .anim-hero {
+            opacity: 0;
+            animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-fade-up, .anim-scale-in {
+            opacity: 0;
+        }
+        .anim-fade-up.revealed {
+            animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .anim-scale-in.revealed {
+            animation: scaleIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
+        .chat-anim {
+            opacity: 0;
+        }
+        .chat-anim.revealed {
+            animation: chatBubble 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: var(--delay, 0ms);
+        }
     </style>
 </head>
 <body class="bg-surface font-body text-on-surface selection:bg-tertiary/20">
@@ -123,10 +167,10 @@
 <!-- Hero Section -->
 <section class="max-w-7xl mx-auto px-8 mb-24">
 <div class="max-w-3xl">
-<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-on-background editorial-kerning leading-tight mb-6" style="">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold text-on-background editorial-kerning leading-tight mb-6 anim-hero" style="--delay: 100ms">
                     Our AI Employees at Work
                 </h1>
-<p class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed" style="">
+<p class="text-xl md:text-2xl text-on-surface-variant font-body leading-relaxed anim-hero" style="--delay: 250ms">
                     See how Yekk agents improve operations across industries. We don't just alert you; we solve the problem before it hits your desk.
                 </p>
 </div>
@@ -135,7 +179,7 @@
 <section class="max-w-7xl mx-auto px-8">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 <!-- Case 1: Hair Salon (Large) -->
-<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between overflow-hidden relative">
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between overflow-hidden relative anim-fade-up" style="--delay: 0ms">
 <div class="mb-12">
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Beauty &amp; Wellness</span>
 <h3 class="font-headline text-3xl font-bold text-on-background mb-4" style="">Hair Salon</h3>
@@ -144,17 +188,17 @@
 <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
 <div class="space-y-4">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 200ms">
 <p class="" style="">I noticed Sarah and Mike cancelled for tomorrow afternoon. Should I reach out to the waitlist?</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 500ms">
 <p class="" style="">Yes, but prioritize anyone who needs a color service. They usually spend more.</p>
 </div>
 </div>
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 800ms">
 <p class="" style="">Done. I've rebooked 4 clients including Mrs. Jenkins. Your schedule is back to 100% capacity.</p>
 </div>
 </div>
@@ -162,7 +206,7 @@
 </div>
 </div>
 <!-- Case 2: Gym Classes (Standard) -->
-<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between anim-fade-up" style="--delay: 100ms">
 <div>
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Fitness</span>
 <h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Gym Classes</h3>
@@ -171,12 +215,12 @@
 <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
 <div class="space-y-3">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-xl text-xs">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl text-xs chat-anim" style="--delay: 200ms">
 <p class="" style="">6PM HIIT is over capacity (24/20). 5PM only has 8 people. Suggest a 15% credit for 6PM users to switch?</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-xl text-xs">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl text-xs chat-anim" style="--delay: 500ms">
 <p class="" style="">Good call. Cap it once 5PM hits 15 people.</p>
 </div>
 </div>
@@ -184,7 +228,7 @@
 </div>
 </div>
 <!-- Case 4: Liquor Store (Medium) -->
-<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div class="lg:col-span-5 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between anim-fade-up" style="--delay: 200ms">
 <div>
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Retail</span>
 <h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Liquor Store</h3>
@@ -193,12 +237,12 @@
 <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
 <div class="space-y-3 text-xs">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl chat-anim" style="--delay: 200ms">
 <p class="" style="">Store #3 is out of Top-Shelf Rye. Store #1 has 48 bottles that haven't moved in 2 weeks. Permission to move 24 units?</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl chat-anim" style="--delay: 500ms">
 <p class="" style="">Approve. Have the morning delivery driver handle it.</p>
 </div>
 </div>
@@ -206,7 +250,7 @@
 </div>
 </div>
 <!-- Case 3: Dance Studio (Large) -->
-<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
+<div class="lg:col-span-7 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between anim-fade-up" style="--delay: 100ms">
 <div class="mb-12">
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Education</span>
 <h3 class="font-headline text-3xl font-bold text-on-background mb-4" style="">Dance Studio</h3>
@@ -215,17 +259,17 @@
 <div class="bg-surface-container-lowest rounded-xl p-6 shadow-sm border border-outline-variant/10">
 <div class="space-y-4">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 200ms">
 <p class="" style="">Advanced Ballet A and B only have 3 students each today. I can merge them at 5PM to free up Studio 2.</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-owner px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 500ms">
 <p class="" style="">Will that conflict with Instructor Elena's schedule?</p>
 </div>
 </div>
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm">
+<div class="chat-bubble-ai px-4 py-3 rounded-2xl max-w-[80%] text-sm chat-anim" style="--delay: 800ms">
 <p class="" style="">No, she is available. I've sent the update to all 6 students. Studio 2 is now clear for private bookings.</p>
 </div>
 </div>
@@ -233,7 +277,7 @@
 </div>
 </div>
 <!-- Case 5: Barbershop (Full Width or Split) -->
-<div class="lg:col-span-6 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between">
+<div class="lg:col-span-6 bg-surface-container-low rounded-xl p-8 flex flex-col justify-between anim-fade-up" style="--delay: 200ms">
 <div>
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Service</span>
 <h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Barbershop</h3>
@@ -242,12 +286,12 @@
 <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
 <div class="space-y-3 text-xs">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl chat-anim" style="--delay: 200ms">
 <p class="" style="">Saturday 11AM-2PM wait times have hit 45 mins for 3 weeks straight. Should I ask Greg if he can shift his Tuesday hours to Saturday morning?</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl chat-anim" style="--delay: 500ms">
 <p class="" style="">Go for it. If he agrees, update the public booking site immediately.</p>
 </div>
 </div>
@@ -255,7 +299,7 @@
 </div>
 </div>
 <!-- Case 6: Construction Company -->
-<div class="lg:col-span-6 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between">
+<div class="lg:col-span-6 bg-surface-container-highest rounded-xl p-8 flex flex-col justify-between anim-fade-up" style="--delay: 300ms">
 <div>
 <span class="text-tertiary font-label text-xs font-bold tracking-widest uppercase mb-4 block" style="">Industrial</span>
 <h3 class="font-headline text-2xl font-bold text-on-background mb-3" style="">Construction</h3>
@@ -264,12 +308,12 @@
 <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10">
 <div class="space-y-3 text-xs">
 <div class="flex justify-start">
-<div class="chat-bubble-ai px-4 py-3 rounded-xl">
+<div class="chat-bubble-ai px-4 py-3 rounded-xl chat-anim" style="--delay: 200ms">
 <p class="" style="">Lumber shipment for Site A is delayed 48 hours. The framing crew is idle. Should I move them to Site C to start the foundation prep?</p>
 </div>
 </div>
 <div class="flex justify-end">
-<div class="chat-bubble-owner px-4 py-3 rounded-xl">
+<div class="chat-bubble-owner px-4 py-3 rounded-xl chat-anim" style="--delay: 500ms">
 <p class="" style="">Confirmed. Text the foreman the new site GPS and arrival time.</p>
 </div>
 </div>
@@ -280,11 +324,11 @@
 </section>
 <!-- CTA Section -->
 <section class="max-w-7xl mx-auto px-8 mt-24">
-<div class="bg-on-background text-on-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="bg-on-background text-on-primary rounded-xl p-12 md:p-20 text-center relative overflow-hidden anim-scale-in">
 <div class="relative z-10 max-w-2xl mx-auto">
-<h2 class="font-headline text-4xl md:text-5xl font-extrabold editorial-kerning mb-6" style="">Ready to delegate?</h2>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold editorial-kerning mb-6 anim-fade-up" style="">Ready to delegate?</h2>
 <p class="text-lg opacity-80 mb-10" style="">Join 200+ business owners from cities around the world like Miami, Buenos Aires, New York City, and Madrid who are using Yekk to handle operations and logistical headaches while they focus on growth.</p>
-<button class="bg-on-primary text-on-background px-10 py-4 rounded-md font-headline font-bold text-lg hover:bg-surface transition-all active:scale-95" style="">Book Your Call</button>
+<button class="bg-on-primary text-on-background px-10 py-4 rounded-md font-headline font-bold text-lg hover:bg-surface transition-all active:scale-95 anim-fade-up" style="--delay: 150ms">Book Your Call</button>
 </div>
 <!-- Abstract Texture Decor -->
 <div class="absolute top-0 right-0 w-64 h-64 bg-tertiary/20 blur-3xl rounded-full -mr-20 -mt-20"></div>
@@ -323,4 +367,18 @@
 </div>
 </div>
 </footer>
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.anim-fade-up, .anim-scale-in, .chat-anim').forEach(el => {
+    observer.observe(el);
+});
+</script>
 </body></html>
